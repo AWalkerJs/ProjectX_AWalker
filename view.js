@@ -4,6 +4,8 @@ class View {
         this.titleInput = document.querySelector("#title-input");
         this.textInput = document.querySelector("#text-input");
         this.btnApprove = document.querySelector("#add-posts");
+
+        this.btnApprove.addEventListener("click", this.handleBtnClick)
     }
 
     renderPosts(posts) {
@@ -17,5 +19,12 @@ class View {
             </div>
             `
         })
+    }
+
+    handleBtnClick () {
+        const title = this.titleInput.value;
+        const text = this.textInput.value;
+
+        console.log (title,text);
     }
 }
