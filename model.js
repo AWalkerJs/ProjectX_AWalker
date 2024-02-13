@@ -5,7 +5,10 @@ class Model {
     }
 
     addPost (title, text) {
-        this.posts.push({title,text});
+        this.posts.push({
+            title,
+            text
+        });
 
         this.onPostsChanged(this.posts);
     }

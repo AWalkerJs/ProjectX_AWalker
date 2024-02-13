@@ -1,9 +1,11 @@
 class View {
-    constructor () {
+    constructor ({onNewPost}) {
         this.postsBlog = document.querySelector("#blog-feed");
         this.titleInput = document.querySelector("#title-input");
         this.textInput = document.querySelector("#text-input");
         this.btnApprove = document.querySelector("#add-posts");
+
+        this.onNewPost = onNewPost;
 
         this.btnApprove.addEventListener("click", this.handleBtnClick)
     }
@@ -17,14 +19,14 @@ class View {
                 <p>${post.title}</p>
                 <p>${post.text}</p>
             </div>
-            `
+            `;
         })
     }
 
-    handleBtnClick () {
+    handleBtnClick = () => {
         const title = this.titleInput.value;
         const text = this.textInput.value;
 
-        console.log (title,text);
+        this.onNewPost(title,text);
     }
 }
